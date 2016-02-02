@@ -1,25 +1,43 @@
-def translate
-
-  p arr_usu = ARGV
-  alpha = ('a'..'z').to_a
-  vowels = %w[a e i o u]
-  consonants = alpha - vowels
-
-  arr_usu.each do |words|
-    if vowels.include?(words[0])
-      puts words + 'way'
-    elsif consonants.include?(words[0]) && consonants.include?(words[1])
-      puts words[2..-1] + words[0..1] + 'ay'
-    elsif consonants.include?(words[0])
-      puts words[1..-1] + words[0] + 'ay'
-    else
-      puts words # return unchanged
-    end
+class Torta
+  
+  def milanesa
+    15
   end
+  
+  def hawaiana
+    20
+  end
+  
+  def pierna
+    15
+  end 
+  
+  def camaron
+    30
+  end
+
 end
 
-translate
-# p translate('apple') == "appleway"
-# p translate('cherry')  == "errychay"
-# p translate('dog') == "ogday"
-# p translate('trash') == "ashtray"
+class Horno 
+  
+  def initialize(time, array_tortas)
+    @@time = time 
+    cocer(array_tortas) 
+  end
+    
+  def cocer(a_t)
+    a_t.each do |tim|
+      if @@time == tim
+        p "Voy a coser bien"
+        
+      end
+
+    end
+  end
+  
+end
+
+
+torta = Torta.new
+tortas = [torta.camaron, torta.camaron, torta.hawaiana, torta.pierna, torta.milanesa]
+horno = Horno.new(15, tortas)
